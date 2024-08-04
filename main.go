@@ -58,6 +58,6 @@ func getUserInput(msg string) string {
 			continue
 		}
 
-		return strings.TrimRight(result, "\n")
+		return strings.TrimRight(result, "\r\n")
 	}
 }
