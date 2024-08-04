@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"x_o_r/cipherer"
 )
 
 var mode = flag.String("mode", "cipher", "Set to 'cipher' or 'decipher'. Default is 'cipher'.")
@@ -18,8 +19,10 @@ func main() {
 	case "cipher":
 		plaintext := getUserInput("Enter your text to cipher: ")
 		fmt.Println(plaintext)
+		fmt.Println(cipherer.Cipher(plaintext, *secretKey))
 	case "decipher":
 		cipheredText := getUserInput("Enter your ciphered data to decipher: ")
+		cipherer.Decipher(cipheredText, *secretKey)
 	default:
 		fmt.Println("Invalid mode. Use 'cipher' or 'decipher'.")
 		os.Exit(1)
